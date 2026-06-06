@@ -1,6 +1,6 @@
-# Ignore all root-level files and folders
-/*
+# Ignore specific folders
+Documents/
+chrome-test-profile/
 
-# Except the extension source code and gitignore itself
-!/src/
-!/.gitignore
+# Ignore generated zip package
+AnnotateX.zip
