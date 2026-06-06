@@ -1,0 +1,13 @@
+# Chrome Extension Test Profile
+chrome-test-profile/
+
+# Specification and design documents
+Documents/
+
+# Generated packages and artifacts
+AnnotateX.zip
+
+# OS temporary files
+.DS_Store
+Thumbs.db
+Desktop.ini
