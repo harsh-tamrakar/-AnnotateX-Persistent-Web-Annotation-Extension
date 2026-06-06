@@ -1,0 +1,316 @@
+/* ============================================
+   AnnotateX — Sidebar Styles
+   Dark theme with premium aesthetics.
+   ============================================ */
+
+/* ── Reset & Base ──────────────────────────── */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+  font-size: 13px;
+  background: #0c0c14;
+  color: #d8d8f0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a44;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a5c;
+}
+
+/* ── Header ────────────────────────────────── */
+
+.header {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid #1e1e32;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #10101c 0%, #0c0c14 100%);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 15px;
+  color: #b0a8f8;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.logo-icon {
+  font-size: 16px;
+  color: #9d95f5;
+}
+
+.toggle-container {
+  display: flex;
+  gap: 3px;
+  background: #14142a;
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.toggle-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #6a6a8c;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.toggle-btn:hover {
+  color: #a0a0c0;
+}
+
+.toggle-btn.active {
+  background: #7F77DD;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(127, 119, 221, 0.3);
+}
+
+/* ── URL Label ─────────────────────────────── */
+
+.url-label {
+  padding: 8px 18px;
+  font-size: 11px;
+  color: #44446a;
+  border-bottom: 1px solid #16162a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'SF Mono', 'Cascadia Code', monospace;
+}
+
+/* ── Stats Bar ─────────────────────────────── */
+
+.stats-bar {
+  font-size: 11px;
+  color: #55558a;
+  padding: 2px 4px 8px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ── Annotations List ──────────────────────── */
+
+.annotations-list {
+  padding: 14px 14px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Annotation Card ───────────────────────── */
+
+.annotation-card {
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: #141428;
+  border-left: 3px solid #7F77DD;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.annotation-card:hover {
+  background: #1a1a32;
+  transform: translateX(2px);
+}
+
+.annotation-card.color-yellow { border-left-color: #f5c842; }
+.annotation-card.color-green  { border-left-color: #4caf50; }
+.annotation-card.color-blue   { border-left-color: #2196f3; }
+.annotation-card.color-pink   { border-left-color: #e91e63; }
+
+.annotation-card.unanchored {
+  opacity: 0.65;
+  border-left-style: dashed;
+}
+
+/* ── Card Contents ─────────────────────────── */
+
+.unanchored-warning {
+  font-size: 11px;
+  color: #d4a43a;
+  background: rgba(212, 164, 58, 0.08);
+  padding: 4px 8px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.card-text-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.color-dot {
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+.dot-yellow { background: #f5c842; }
+.dot-green  { background: #4caf50; }
+.dot-blue   { background: #2196f3; }
+.dot-pink   { background: #e91e63; }
+
+.highlight-text {
+  font-size: 12px;
+  color: #a8a8cc;
+  font-style: italic;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.note-input {
+  width: 100%;
+  background: #0c0c18;
+  border: 1px solid #22223a;
+  border-radius: 7px;
+  color: #d0d0ec;
+  font-size: 12px;
+  padding: 8px 10px;
+  resize: vertical;
+  min-height: 38px;
+  font-family: inherit;
+  line-height: 1.5;
+  transition: border-color 0.2s;
+}
+
+.note-input::placeholder {
+  color: #3a3a5c;
+}
+
+.note-input:focus {
+  outline: none;
+  border-color: #7F77DD;
+  box-shadow: 0 0 0 2px rgba(127, 119, 221, 0.15);
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.timestamp {
+  font-size: 10px;
+  color: #404068;
+  font-weight: 500;
+}
+
+.del-btn {
+  font-size: 11px;
+  background: transparent;
+  border: 1px solid #2a1a22;
+  color: #a05050;
+  border-radius: 5px;
+  padding: 3px 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.del-btn:hover {
+  background: #2a1018;
+  color: #e06060;
+  border-color: #4a2030;
+}
+
+/* ── Section Divider ───────────────────────── */
+
+.section-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: #3a3a60;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 16px 18px 8px;
+  border-top: 1px solid #16162a;
+}
+
+/* ── URL List ──────────────────────────────── */
+
+.url-list {
+  padding: 0 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.url-item {
+  font-size: 11px;
+  color: #5a5a88;
+  padding: 7px 10px;
+  border-radius: 6px;
+  cursor: default;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+  font-family: 'SF Mono', 'Cascadia Code', monospace;
+}
+
+.url-item:hover {
+  background: #14142a;
+  color: #9d95f5;
+}
+
+/* ── Empty States ──────────────────────────── */
+
+.empty {
+  color: #33335a;
+  font-size: 13px;
+  text-align: center;
+  padding: 28px 16px;
+  line-height: 1.6;
+}
+
+.empty-hint {
+  font-size: 11px;
+  color: #2a2a4a;
+  display: block;
+  margin-top: 4px;
+}
+
+.loading-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}

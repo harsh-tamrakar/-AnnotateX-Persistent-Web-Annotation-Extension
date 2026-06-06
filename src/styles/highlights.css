@@ -1,0 +1,91 @@
+/* ============================================
+   AnnotateX — Highlight Styles
+   Injected into web pages via manifest content_scripts.css
+   All selectors prefixed with 'annotatex-' to avoid NFR-03 violations.
+   ============================================ */
+
+/* ── Base highlight mark ───────────────────── */
+
+.annotatex-highlight {
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 1px 2px;
+  margin: 0 -2px;
+  transition: opacity 0.2s ease, outline 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  text-decoration: none;
+}
+
+.annotatex-highlight:hover {
+  opacity: 0.85;
+  outline: 2px solid rgba(127, 119, 221, 0.4);
+}
+
+/* ── Color variants ────────────────────────── */
+
+.color-yellow { background: rgba(255, 235, 59, 0.55) !important; }
+.color-green  { background: rgba(76, 175, 80, 0.35)  !important; }
+.color-blue   { background: rgba(33, 150, 243, 0.35) !important; }
+.color-pink   { background: rgba(233, 30, 99, 0.30)  !important; }
+
+/* ── Styled tooltip (FR-09) ────────────────── */
+
+.annotatex-highlight[data-note]:not([data-note=""])::after {
+  content: attr(data-note);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a2e;
+  color: #e0e0f0;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.4;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #2d2d4a;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  white-space: pre-wrap;
+  max-width: 280px;
+  word-wrap: break-word;
+  z-index: 2147483646;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.annotatex-highlight[data-note]:not([data-note=""]):hover::after {
+  opacity: 1;
+}
+
+/* Tooltip arrow */
+.annotatex-highlight[data-note]:not([data-note=""])::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #1a1a2e;
+  z-index: 2147483646;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.annotatex-highlight[data-note]:not([data-note=""]):hover::before {
+  opacity: 1;
+}
+
+/* ── Toolbar fade-in animation ─────────────── */
+
+@keyframes annotatex-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
