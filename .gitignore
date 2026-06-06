@@ -1,13 +1,6 @@
-# Chrome Extension Test Profile
-chrome-test-profile/
+# Ignore all root-level files and folders
+/*
 
-# Specification and design documents
-Documents/
-
-# Generated packages and artifacts
-AnnotateX.zip
-
-# OS temporary files
-.DS_Store
-Thumbs.db
-Desktop.ini
+# Except the extension source code and gitignore itself
+!/src/
+!/.gitignore
